@@ -1,0 +1,40 @@
+[
+  {
+    "family": "awsthreetier",
+    "containerDefinitions": [
+      {
+        "name": "tomcat",
+        "image": "699475916598.dkr.ecr.us-east-2.amazonaws.com/awsthreetier:latest",
+        "cpu": 256,
+        "memory": 512,
+        "essential": true,
+        "portMappings": [
+          {
+            "containerPort": 8080,
+[
+  {
+    "family": "awsthreetier",
+    "containerDefinitions": [
+      {
+        "name": "tomcat",
+        "image": "<REPOSITORY_URI>:latest",
+        "cpu": 256,
+        "memory": 512,
+        "essential": true,
+        "portMappings": [
+          {
+            "containerPort": 8080,
+            "hostPort": 8080
+          }
+        ]
+      }
+    ]
+  }
+]
+            "hostPort": 8080
+          }
+        ]
+      }
+    ]
+  }
+]

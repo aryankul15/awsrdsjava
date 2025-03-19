@@ -3,7 +3,7 @@ Resources:
   - TargetService:
       Type: AWS::ECS::Service
       Properties:
-        TaskDefinition: "threetier"
+        TaskDefinition: "arn:aws:ecs:us-east-2:699475916598:task-definition/awsthreetier"
         LoadBalancerInfo:
           ContainerName: "tomcat"
           ContainerPort: 8080

@@ -1,0 +1,93 @@
+{
+    "pipeline": {
+        "name": "MyAppPipeline",
+        "roleArn": "arn:aws:iam::699475916598:role/CodePipelineServiceRole",
+        "artifactStore": {
+            "type": "S3",
+            "location": "aryanappartifact-bucket"
+        },
+        "stages": [
+            {
+                "name": "Source",
+                "actions": [
+                    {
+                        "name": "SourceAction",
+                        "actionTypeId": {
+                            "category": "Source",
+                            "owner": "AWS",
+                            "provider": "CodeStarSourceConnection",
+                            "version": "1"
+                        },
+                        "configuration": {
+                            "ConnectionArn": "arn:aws:codeconnections:us-east-2:699475916598:connection/3c6b723b-a968-4de9-804f-638a79a1914e",
+                            "FullRepositoryId": "aryankul15/awsrdsjava",
+                            "BranchName": "main"
+                        },
+                        "outputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "region": "us-east-2",
+                        "runOrder": 1
+                    }
+                ]
+            },
+            {
+                "name": "Build",
+                "actions": [
+                    {
+                        "name": "BuildAction",
+                        "actionTypeId": {
+                            "category": "Build",
+                            "owner": "AWS",
+                            "provider": "CodeBuild",
+                            "version": "1"
+                        },
+                        "configuration": {
+                            "ProjectName": "my-app-build"
+                        },
+                        "inputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "outputArtifacts": [
+                            {
+                                "name": "BuildArtifact"
+                            }
+                        ],
+                        "region": "us-east-2",
+                        "runOrder": 1
+                    }
+                ]
+            },
+            {
+                "name": "Deploy",
+                "actions": [
+                    {
+                        "name": "DeployAction",
+                        "actionTypeId": {
+                            "category": "Deploy",
+                            "owner": "AWS",
+                            "provider": "CodeDeploy",
+                            "version": "1"
+                        },
+                        "configuration": {
+                            "ApplicationName": "your-ecs-application-name",
+                            "DeploymentGroupName": "your-deployment-group"
+                        },
+                        "inputArtifacts": [
+                            {
+                                "name": "BuildArtifact"
+                            }
+                        ],
+                        "region": "us-east-2",
+                        "runOrder": 1
+                    }
+                ]
+            }
+        ],
+        "version": 1
+    }
+}

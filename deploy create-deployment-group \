@@ -1,0 +1,98 @@
+{
+    "TargetGroups": [
+        {
+            "TargetGroupArn": "arn:aws:elasticloadbalancing:us-east-2:699475916598:targetgroup/ecs-awsrds-three-tier-service/56d545dddf71cd08",
+            "TargetGroupName": "ecs-awsrds-three-tier-service",
+            "Protocol": "HTTP",
+            "Port": 80,
+            "VpcId": "vpc-028fc9c5195fc2011",
+            "HealthCheckProtocol": "HTTP",
+            "HealthCheckPort": "traffic-port",
+            "HealthCheckEnabled": true,
+            "HealthCheckIntervalSeconds": 30,
+            "HealthCheckTimeoutSeconds": 5,
+            "HealthyThresholdCount": 5,
+            "UnhealthyThresholdCount": 2,
+            "HealthCheckPath": "/LoginWebApp/index.jsp",
+            "Matcher": {
+                "HttpCode": "200"
+            },
+            "LoadBalancerArns": [
+                "arn:aws:elasticloadbalancing:us-east-2:699475916598:loadbalancer/app/alb-3t/b2e08acf09d85da4"
+            ],
+            "TargetType": "ip",
+            "ProtocolVersion": "HTTP1",
+            "IpAddressType": "ipv4"
+        },
+        {
+            "TargetGroupArn": "arn:aws:elasticloadbalancing:us-east-2:699475916598:targetgroup/ecs-calast-calastar-service/4a526953fe26c188",
+            "TargetGroupName": "ecs-calast-calastar-service",
+            "Protocol": "HTTP",
+            "Port": 80,
+            "VpcId": "vpc-028fc9c5195fc2011",
+            "HealthCheckProtocol": "HTTP",
+            "HealthCheckPort": "traffic-port",
+            "HealthCheckEnabled": true,
+            "HealthCheckIntervalSeconds": 30,
+            "HealthCheckTimeoutSeconds": 5,
+            "HealthyThresholdCount": 5,
+            "UnhealthyThresholdCount": 2,
+            "HealthCheckPath": "/",
+            "Matcher": {
+                "HttpCode": "200"
+            },
+            "LoadBalancerArns": [
+                "arn:aws:elasticloadbalancing:us-east-2:699475916598:loadbalancer/app/calaster-load-balancer/e591a6d8db6e13ca"
+            ],
+            "TargetType": "ip",
+            "ProtocolVersion": "HTTP1",
+            "IpAddressType": "ipv4"
+        },
+        {
+            "TargetGroupArn": "arn:aws:elasticloadbalancing:us-east-2:699475916598:targetgroup/k8s-default-gettings-2a0af48af4/8afac6bd4c598e0c",
+            "TargetGroupName": "k8s-default-gettings-2a0af48af4",
+            "Protocol": "HTTP",
+            "Port": 3000,
+            "VpcId": "vpc-028fc9c5195fc2011",
+            "HealthCheckProtocol": "HTTP",
+            "HealthCheckPort": "traffic-port",
+            "HealthCheckEnabled": true,
+            "HealthCheckIntervalSeconds": 15,
+            "HealthCheckTimeoutSeconds": 5,
+            "HealthyThresholdCount": 2,
+            "UnhealthyThresholdCount": 2,
+            "HealthCheckPath": "/",
+            "Matcher": {
+                "HttpCode": "200"
+            },
+            "LoadBalancerArns": [
+                "arn:aws:elasticloadbalancing:us-east-2:699475916598:loadbalancer/app/k8s-default-gettings-8ea2fdbc87/c920016802ddc877"
+            ],
+            "TargetType": "ip",
+            "ProtocolVersion": "HTTP1",
+            "IpAddressType": "ipv4"
+        },
+        {
+            "TargetGroupArn": "arn:aws:elasticloadbalancing:us-east-2:699475916598:targetgroup/tg-3t/98e8c78d3431bf37",
+            "TargetGroupName": "tg-3t",
+            "Protocol": "HTTP",
+            "Port": 8080,
+            "VpcId": "vpc-028fc9c5195fc2011",
+            "HealthCheckProtocol": "HTTP",
+            "HealthCheckPort": "traffic-port",
+            "HealthCheckEnabled": true,
+            "HealthCheckIntervalSeconds": 30,
+            "HealthCheckTimeoutSeconds": 5,
+            "HealthyThresholdCount": 5,
+            "UnhealthyThresholdCount": 2,
+            "HealthCheckPath": "/",
+            "Matcher": {
+                "HttpCode": "200"
+            },
+            "LoadBalancerArns": [],
+            "TargetType": "ip",
+            "ProtocolVersion": "HTTP1",
+            "IpAddressType": "ipv4"
+        }
+    ]
+}
