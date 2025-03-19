@@ -45,7 +45,7 @@
                             "version": "1"
                         },
                         "configuration": {
-                            "ProjectName": "my-app-build"
+                            "ProjectName": "threetyre"
                         },
                         "inputArtifacts": [
                             {
@@ -66,16 +66,17 @@
                 "name": "Deploy",
                 "actions": [
                     {
-                        "name": "DeployAction",
+                        "name": "Deploy",
                         "actionTypeId": {
                             "category": "Deploy",
                             "owner": "AWS",
-                            "provider": "CodeDeploy",
+                            "provider": "ECS",
                             "version": "1"
                         },
                         "configuration": {
-                            "ApplicationName": "your-ecs-application-name",
-                            "DeploymentGroupName": "your-deployment-group"
+                            "ClusterName": "awsrdsjava",
+                            "ServiceName": "three-tier",
+			    "FileName": "imageDefinitions.json"
                         },
                         "inputArtifacts": [
                             {
