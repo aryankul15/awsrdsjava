@@ -6,7 +6,7 @@ ENV DB_HOST=aryandb.ch6mmsmeskdv.us-east-2.rds.amazonaws.com
 ENV DB_PORT=3306
 ENV DB_NAME=jwt
 ENV DB_USER=admin
-ENV DB_PASSWORD=Aryan1509
+ENV DB_PASSWORD=jjjjjjj
 
 # Install necessary dependencies
 RUN apt-get update && apt-get install -y \
